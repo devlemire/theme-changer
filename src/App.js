@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import ColorChanger from './components/ColorChanger'
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace'
+    };
+  }
+
+  updateTheme(attr, val) {
+    this.setState({ [attr]: val })
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div>
+        <div>
+          <ColorChanger update={ this.updateTheme.bind(this) } />
+          <SizeChanger update={ this.updateTheme.bind(this) } />
+          <FamilyChanger update={ this.updateTheme.bind(this) } />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
       </div>
-    );
+    )
   }
 }
 

@@ -14,6 +14,8 @@ class App extends Component {
       fontSize: 12,
       fontFamily: 'monospace'
     };
+
+    this.updateTheme = this.updateTheme.bind(this);
   }
 
   updateTheme(attr, val) {
@@ -24,9 +26,9 @@ class App extends Component {
     return (
       <div>
         <div>
-          <ColorChanger update={ this.updateTheme.bind(this) } />
-          <SizeChanger update={ this.updateTheme.bind(this) } />
-          <FamilyChanger update={ this.updateTheme.bind(this) } />
+          <ColorChanger update={ this.updateTheme } />
+          <SizeChanger update={ this.updateTheme } />
+          <FamilyChanger update={ this.updateTheme } />
         </div>
         <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
       </div>

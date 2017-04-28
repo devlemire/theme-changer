@@ -15,20 +15,30 @@ class App extends Component {
       fontFamily: 'monospace'
     };
 
-    this.updateTheme = this.updateTheme.bind(this);
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
   }
 
-  updateTheme(attr, val) {
-    this.setState({ [attr]: val })
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
   }
 
   render() {
     return (
       <div>
         <div>
-          <ColorChanger update={ this.updateTheme } />
-          <SizeChanger update={ this.updateTheme } />
-          <FamilyChanger update={ this.updateTheme } />
+          <ColorChanger update={ this.updateColor } />
+          <SizeChanger update={ this.updateSize } />
+          <FamilyChanger update={ this.updateFamily } />
         </div>
         <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
       </div>

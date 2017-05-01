@@ -140,6 +140,30 @@ constructor() {
 
 In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChanger` components in `App.js` with an `update` prop.
 
+### Instructions
+
+* Open `App.js` ( `src/App.js` )
+* Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`
+  * Add a prop called `update` that is equal to the `updateColor` method
+* Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`
+  * Add a prop called `update` that is equal to the `updateSize` method
+* Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`
+  * Add a prop called `update` that is equal to the `updateFamily` method
+
+### Solution
+
+<details>
+
+<summary> <code> App.js </code> </summary>
+
+```jsx
+<ColorChanger update={ this.updateColor } />
+<SizeChanger update={ this.updateSize } />
+<FamilyChanger update={ this.updateFamily } />
+```
+
+</details>
+
 ## Step 5
 
 ### Summary

@@ -1,46 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// Components
 import ColorChanger from './components/ColorChanger'
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      fontColor: 'black',
-      fontSize: 12,
-      fontFamily: 'monospace'
-    };
+  // constructor
 
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
-  }
+  // updateColor
 
-  updateColor(val) {
-    this.setState({ fontColor: val });
-  }
+  // updateSize
 
-  updateSize(val) {
-    this.setState({ fontSize: val });
-  }
-
-  updateFamily(val) {
-    this.setState({ fontFamily: val });
-  }
+  // updateFamily
 
   render() {
     return (
       <div>
         <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
+          { /* Render ColorChanger with an update prop that is the updateColor method */ }
+          { /* Render SizeChanger with an update prop that is the updateSize method */ }
+          { /* Render FamilyChanger with an update prop that is the updateFamily method */ }
         </div>
-        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+        { /* Render TextContainer with a fontColor, fontSize, and fontFamily prop being equal to fontColor, fontSize, and fontFamily on state */ }
       </div>
     )
   }

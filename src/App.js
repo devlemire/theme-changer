@@ -20,9 +20,9 @@ class App extends Component {
     return (
       <div>
         <div>
-          { /* Render ColorChanger with an update prop that is the updateColor method */ }
-          { /* Render SizeChanger with an update prop that is the updateSize method */ }
-          { /* Render FamilyChanger with an update prop that is the updateFamily method */ }
+          { /* Render ColorChanger */ }
+          { /* Render SizeChanger */ }
+          { /* Render FamilyChanger */ }
         </div>
         { /* Render TextContainer with a fontColor, fontSize, and fontFamily prop being equal to fontColor, fontSize, and fontFamily on state */ }
       </div>

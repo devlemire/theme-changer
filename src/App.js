@@ -24,7 +24,7 @@ class App extends Component {
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
-        { /* Render TextContainer with a fontColor, fontSize, and fontFamily prop being equal to fontColor, fontSize, and fontFamily on state */ }
+        { /* Render TextContainer */ }
       </div>
     )
   }

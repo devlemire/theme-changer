@@ -8,6 +8,31 @@ In this project we will create an application that can change the theme of a par
 
 ### Summary
 
+In this step we will create the initial state for `App.js` and `TextContainer.js`.
+
+## Step 2
+
+### Summary
+
+In this step we will create methods on `App.js` to update `fontColor`, `fontSize` and `fontFamily` on state. 
+
+## Step 3
+
+### Summary
+
+In this step we will bind `this` to our methods in the `constructor` method in `App.js`.
+
+## Step 4
+
+### Summary
+
+In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChanger` components in `App.js` with an `update` prop.
+
+## Step 5
+
+### Summary
+
+In this step we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element.
 
 
 ## Contributions

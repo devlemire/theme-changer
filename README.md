@@ -226,6 +226,26 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 
 In this step we will create a `componentWillReceiveProps` method that will update the `state` in `TextContainer.js`.
 
+### Instructions
+
+* Open `TextContainer.js` ( `src/components/TextContainer.js` )
+* Add a `componentWillReceiveProps` method that takes a parameter called `props` where it says `// componentWillReceiveProps`
+  * Using `setState` update the `fontColor`, `fontFamily`, and `fontSize` properties on state with the new `props`
+
+### Solution
+
+<details>
+
+<summary> <code> TextContainer.js </code> </summary>
+
+```jsx
+componentWillReceiveProps(props) {
+  this.setState({ fontColor: props.fontColor, fontFamily: props.fontFamily, fontSize: props.fontSize });
+}
+```
+
+</details>
+
 ## Step 7 
 
 ### Summary

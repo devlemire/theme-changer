@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 export default class ColorChanger extends Component {
-  componentWillMount() {
-    console.log('MOUNTING')
-  }
-
   render() {
     return (
       <div>

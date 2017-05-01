@@ -34,6 +34,18 @@ In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChan
 
 In this step we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element.
 
+## Step 6
+
+### Summary 
+
+In this step we will create a `componentWillReceiveProps` method that will update the `state` in `TextContainer.js`.
+
+## Step 7 
+
+### Summary
+
+In this step we will `render` the `TextContainer` component in `App.js` with a `fontColor`, `fontSize`, and `fontFamily` prop equal to `fontColor`, `fontSize` and `fontFamily`'s value on `App.js`'s state.
+
 
 ## Contributions
 

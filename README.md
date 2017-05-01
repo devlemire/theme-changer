@@ -33,14 +33,14 @@ In this step we will create the initial state for `App.js` and `TextContainer.js
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-  constructor() {
-    super();
-    this.state = {
-      fontColor: 'black',
-      fontSize: 12,
-      fontFamily: 'monospace'
-    };
-  }
+constructor() {
+  super();
+  this.state = {
+    fontColor: 'black',
+    fontSize: 12,
+    fontFamily: 'monospace'
+  };
+}
 ```
 
 </details>
@@ -50,14 +50,14 @@ In this step we will create the initial state for `App.js` and `TextContainer.js
 <summary> <code> TextContainer.js </code> </summary>
 
 ```jsx
-  constructor() {
-    super();
-    this.state = {
-      fontColor: 'black',
-      fontSize: 12,
-      fontFamily: 'monospace'
-    };
-  }
+constructor() {
+  super();
+  this.state = {
+    fontColor: 'black',
+    fontSize: 12,
+    fontFamily: 'monospace'
+  };
+}
 ```
 
 </details>
@@ -105,6 +105,34 @@ updateFamily(val) {
 ### Summary
 
 In this step we will bind `this` to our methods in the `constructor` method in `App.js`.
+
+### Instructions
+
+* Open `App.js` ( `src/App.js` )
+* Bind `this` to the three methods we just created: `updateColor`, `updateSize`, and `updateFamily` in the `constructor` method
+
+### Solution
+
+<details>
+
+<summary> <code> App.js </code> </summary>
+
+```jsx
+constructor() {
+  super();
+  this.state = {
+    fontColor: 'black',
+    fontSize: 12,
+    fontFamily: 'monospace'
+  };
+
+  this.updateColor = this.updateColor.bind(this);
+  this.updateSize = this.updateSize.bind(this);
+  this.updateFamily = this.updateFamily.bind(this);
+}
+```
+
+</details>
 
 ## Step 4
 

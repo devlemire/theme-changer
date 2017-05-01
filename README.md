@@ -252,6 +252,25 @@ componentWillReceiveProps(props) {
 
 In this step we will `render` the `TextContainer` component in `App.js` with a `fontColor`, `fontSize`, and `fontFamily` prop equal to `fontColor`, `fontSize` and `fontFamily`'s value on `App.js`'s state.
 
+### Instructions
+
+* Open `App.js` ( `src/App.js` )
+* Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`
+  * Add a `fontColor` prop that equals `fontColor` on state
+  * Add a `fontSize` prop that equals `fontSize` on state
+  * Add a `fontFamily` prop that equals `fontFamily` on state
+
+### Solution
+
+<details>
+
+<summary> <code> App.js </code> </summary>
+
+```jsx
+<TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+```
+
+</details>
 
 ## Contributions
 

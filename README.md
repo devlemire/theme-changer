@@ -10,6 +10,22 @@ In this project we will create an application that can change the theme of a par
 
 In this step we will create the initial state for `App.js` and `TextContainer.js`.
 
+### Instructions
+
+* Open `App.js` ( `src/App.js` ) and `TextContainer.js` ( `src/components/TextContainer.js` )
+* In `App.js`, create a constructor method where it says `// constructor`
+  * Call `super()`
+  * Create a `state` object with the following properties:
+    * fontColor: 'black'
+    * fontSize: 12,
+    * fontFamily: 'monospace'
+* In `TextContainer.js`, create a constructor method where it says `// constructor`
+  * Call `super()`
+  * Create a `state` object with the following properties:
+    * fontColor: 'black',
+    * fontSize: 12,
+    * fontFamily: 'monospace'
+
 ## Step 2
 
 ### Summary

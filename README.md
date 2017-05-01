@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project we will create an application that can change the theme of a paragrpah real-time using elements on the front-end.
+In this project we will create an application that can change the theme of a paragrpah real-time using elements on the front-end. We will cover how to use `this`, `bind`, `state`, `props`, and a life cycle method called `componentWillReceiveProps`.
 
 ## Step 1
 

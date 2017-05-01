@@ -26,11 +26,79 @@ In this step we will create the initial state for `App.js` and `TextContainer.js
     * fontSize: 12,
     * fontFamily: 'monospace'
 
+### Solution
+
+<details>
+
+<summary> <code> App.js </code> </summary>
+
+```jsx
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace'
+    };
+  }
+```
+
+</details>
+
+<details> 
+
+<summary> <code> TextContainer.js </code> </summary>
+
+```jsx
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace'
+    };
+  }
+```
+
+</details>
+
 ## Step 2
 
 ### Summary
 
 In this step we will create methods on `App.js` to update `fontColor`, `fontSize` and `fontFamily` on state. 
+
+### Instructions
+
+* Open `App.js` ( `src/App.js` )
+* Create an updateColor method that takes a parameter called `val` where it says `// updateColor`
+  * Use `setState` to update `fontColor` to `val`
+* Create an updateSize method that takes a parameter called `val` where it says `// updateSize`
+  * Use `setState` to update `fontSize` to `val`
+* Create an updateFamily method that takes a parameter called `val` where it says `// updateFamily`
+  * Use `setState` to update `fontFamily` to `val`
+
+### Solution
+
+<details>
+
+<summary> <code> App.js </code> </summary>
+
+```jsx
+updateColor(val) {
+  this.setState({ fontColor: val });
+}
+
+updateSize(val) {
+  this.setState({ fontSize: val });
+}
+
+updateFamily(val) {
+  this.setState({ fontFamily: val });
+}
+```
+
+</details>
 
 ## Step 3
 

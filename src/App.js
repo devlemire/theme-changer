@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       fontColor: 'black',
       fontSize: 12,
-      fontFamily: 'monospace'
+      fontFamily: 'monospace',
+      allowEdit: "true"
     };
 
     this.updateColor = this.updateColor.bind(this);
@@ -32,13 +33,22 @@ class App extends Component {
     this.setState({ fontFamily: val });
   }
 
+  updateStatus(val) {
+    this.setState({ allowEdit: val });
+  }
+
   render() {
     return (
       <div>
+        <p> Editable </p>
+        <select onChange={ (e) => this.updateStatus(e.target.value) }>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
         <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
+          <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit }/>
+          <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
+          <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
         </div>
         <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
       </div>

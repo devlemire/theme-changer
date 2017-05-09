@@ -346,12 +346,12 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 ### Instructions
 
 * Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
-* On the opening `select` tag, in all three files, add an `onChange` prop:
+* Locate the `select` tag, in all three files, and add an `onChange` prop:
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
   * Parse Int the value of the target when in `SizeChanger`. 
-* On the opening `select` tag, in all three files, add a `disabled` prop:
-  * The `select` element should be `disabled` if `allowEdit` is equal to `"false"`.
+* Locate the `select` tag, in all three files, and add a `disabled` prop:
+  * The `select` element should be `disabled` if `allowEdit` on state is equal to `"false"`.
 
 ### Solution
 
@@ -364,7 +364,7 @@ render() {
   return (
     <div>
       <p> Font Color </p>
-      <select onChange={ (e) => this.props.update(e.target.value) }>
+      <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
         <option value="black"> Black </option>
         <option value="blue"> Blue </option>
         <option value="green"> Green </option>
@@ -385,7 +385,7 @@ render() {
   return (
     <div>
       <p> Font Family </p>
-      <select onChange={ (e) => this.props.update(e.target.value) }>
+      <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
         <option value="monospace"> Monospace </option>
         <option value="arial"> Arial </option>
         <option value="courier"> Courier </option>
@@ -406,7 +406,7 @@ render() {
   return (
     <div>
       <p> Font Size </p>
-      <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) }>
+      <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) } disabled={ this.state.allowEdit === "false" }>
         <option value="12"> 12 </option>
         <option value="13"> 13 </option>
         <option value="14"> 14 </option>

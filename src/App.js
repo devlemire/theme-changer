@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Components
-import ColorChanger from './components/ColorChanger'
+import ColorChanger from './components/ColorChanger';
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
 import TextContainer from './components/TextContainer';

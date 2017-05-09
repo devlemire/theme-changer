@@ -16,9 +16,16 @@ class App extends Component {
 
   // updateFamily
 
+  // updateStatus
+
   render() {
     return (
       <div>
+        <p> Editable </p>
+        <select>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
         <div>
           { /* Render ColorChanger */ }
           { /* Render SizeChanger */ }

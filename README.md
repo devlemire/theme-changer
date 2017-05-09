@@ -255,13 +255,13 @@ In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChan
 
 ### Instructions
 
-* Open `App.js` ( `src/App.js` )
-* Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`
-  * Add a prop called `update` that is equal to the `updateColor` method
-* Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`
-  * Add a prop called `update` that is equal to the `updateSize` method
-* Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`
-  * Add a prop called `update` that is equal to the `updateFamily` method
+* Open `src/App.js`.
+* Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`:
+  * Add a prop called `update` that is equal to the `updateColor` method.
+* Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`:
+  * Add a prop called `update` that is equal to the `updateSize` method.
+* Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`:
+  * Add a prop called `update` that is equal to the `updateFamily` method.
 
 ### Solution
 
@@ -270,9 +270,66 @@ In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChan
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-<ColorChanger update={ this.updateColor } />
-<SizeChanger update={ this.updateSize } />
-<FamilyChanger update={ this.updateFamily } />
+import React, { Component } from 'react';
+import './App.css';
+
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+  }
+
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
+  }
+
+  updateStatus(val) {
+    this.setState({ allowEdit: val })
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          <ColorChanger update={ this.updateColor } />
+          <SizeChanger update={ this.updateSize } />
+          <FamilyChanger update={ this.updateFamily } />
+        </div>
+        { /* Render TextContainer */ }
+      </div>
+    )
+  }
+}
+
+export default App;
 ```
 
 </details>
@@ -285,9 +342,11 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 
 ### Instructions
 
-* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`
-* On the opening `select` tag, in all three files, add an `onChange` that uses an arrow function to capture the change event object
-  * Inside the arrow function call the `update` prop with the value of the target 
+* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
+* On the opening `select` tag, in all three files, add an `onChange` prop:
+  * The `onChange` should use an arrow function to capture the `event`. 
+  * Inside the arrow function call the `update` prop with the value of the target from the `event`.
+  * Parse Int the value of the target when in `SizeChanger`. 
 
 ### Solution
 
@@ -296,11 +355,18 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 <summary> <code> ColorChanger.js </code> </summary>
 
 ```jsx
-<select onChange={ (e) => { this.props.update(e.target.value) } }>
-  <option value="black"> Black </option>
-  <option value="blue"> Blue </option>
-  <option value="green"> Green </option>
-</select>
+render() {
+  return (
+    <div>
+      <p> Font Color </p>
+      <select onChange={ (e) => this.props.update(e.target.value) }>
+        <option value="black"> Black </option>
+        <option value="blue"> Blue </option>
+        <option value="green"> Green </option>
+      </select>
+    </div>
+  )
+}
 ```
 
 </details>
@@ -310,11 +376,18 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 <summary> <code> FamilyChanger.js </code> </summary>
 
 ```jsx
-<select onChange={ (e) => { this.props.update(e.target.value) } }>
-  <option value="monospace"> Monospace </option>
-  <option value="arial"> Arial </option>
-  <option value="courier"> Courier </option>
-</select>
+render() {
+  return (
+    <div>
+      <p> Font Family </p>
+      <select onChange={ (e) => this.props.update(e.target.value) }>
+        <option value="monospace"> Monospace </option>
+        <option value="arial"> Arial </option>
+        <option value="courier"> Courier </option>
+      </select>
+    </div>
+  )
+}
 ```
 
 </details>
@@ -324,11 +397,18 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 <summary> <code> SizeChanger.js </code> </summary>
 
 ```jsx
-<select onChange={ (e) => { this.props.update(parseInt(e.target.value, 10)) } }>
-  <option value="12"> 12 </option>
-  <option value="13"> 13 </option>
-  <option value="14"> 14 </option>
-</select>
+render() {
+  return (
+    <div>
+      <p> Font Size </p>
+      <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) }>
+        <option value="12"> 12 </option>
+        <option value="13"> 13 </option>
+        <option value="14"> 14 </option>
+      </select>
+    </div>
+  )
+}
 ```
 
 </details>

@@ -8,7 +8,7 @@ In this project we will create an application that can change the theme of a par
 
 ### Summary
 
-In this step we will create the initial state for `src/App.js`. We will keep track of the initial theme values and the if the theme is allowed to be edited on this state.
+In this step we will create the initial state for `src/App.js`. On this state object, we will keep track of the initial theme values and if the theme is allowed to be edited.
 
 ### Instructions
 

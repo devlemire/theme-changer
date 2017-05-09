@@ -15,7 +15,7 @@ In this step we will create the initial state for `src/App.js`. On this state ob
 * Open `src/App.js`.
 * Create a `constructor` method where it says `// constructor`:
   * This method should call `super()`.
-  * This should create an initial state object with the following properties:
+  * This method should create an initial state object with the following properties:
     * fontColor: 'black'
     * fontSize: 12,
     * fontFamily: 'monospace'

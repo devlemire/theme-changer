@@ -592,7 +592,7 @@ export default App;
 
 ### Summary
 
-At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` using the `select` element our child components are not updating. In this step we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
+At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` our child components are not updating with the new value. In this step we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
 
 ### Instructions
 

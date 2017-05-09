@@ -8,7 +8,7 @@ In this project we will create an application that can change the theme of a par
 
 ### Summary
 
-In this step we will create the initial state for `src/App.js`. On this state object, we will keep track of the initial theme values and if the theme is allowed to be edited.
+In this step, we will create the initial state for `src/App.js`. On this state object, we will keep track of the initial theme values and if the theme is allowed to be edited.
 
 ### Instructions
 
@@ -84,7 +84,7 @@ export default App;
 
 ### Summary
 
-In this step we will create class methods in `src/App.js` to update `fontColor`, `fontSize`, `fontFamily`, and `allowEdit` on state. 
+In this step, we will create class methods in `src/App.js` to update `fontColor`, `fontSize`, `fontFamily`, and `allowEdit` on state. 
 
 ### Instructions
 
@@ -169,7 +169,7 @@ export default App;
 
 ### Summary
 
-In this step we will bind `this` to our methods in the `constructor` method in `App.js`. We'll only need to bind `this` on the `updateColor`, `updateSize`, and `updateFamily` methods.
+In this step, we will bind `this` to our methods in the `constructor` method in `App.js`. We'll only need to bind `this` on the `updateColor`, `updateSize`, and `updateFamily` methods.
 
 ### Instructions
 
@@ -251,7 +251,7 @@ export default App;
 
 ### Summary
 
-In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChanger` components in `App.js` with an `update` prop.
+In this step, we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChanger` components in `App.js` with an `update` prop.
 
 ### Instructions
 
@@ -341,7 +341,7 @@ export default App;
 
 ### Summary
 
-In this step we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
+In this step, we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
 
 ### Instructions
 
@@ -422,7 +422,7 @@ render() {
 
 ### Summary 
 
-In this step we will update the `select` element in `src/App.js` to use an `onChange` prop to update the value of `allowEdit` on state.
+In this step, we will update the `select` element in `src/App.js` to use an `onChange` prop to update the value of `allowEdit` on state.
 
 ### Instructions
 
@@ -507,7 +507,7 @@ export default App;
 
 ### Summary
 
-In this step we will `render` the `TextContainer` component in `App.js` with a `fontColor`, `fontSize`, and `fontFamily` prop equal to `fontColor`, `fontSize` and `fontFamily`'s value on `App.js`'s state.
+In this step, we will `render` the `TextContainer` component in `App.js` with a `fontColor`, `fontSize`, and `fontFamily` prop equal to `fontColor`, `fontSize` and `fontFamily`'s value on `App.js`'s state.
 
 ### Instructions
 
@@ -592,7 +592,7 @@ export default App;
 
 ### Summary
 
-At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` our child components are not updating with the new value. In this step we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
+At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` our child components are not updating with the new value. In this step, we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
 
 ### Instructions
 

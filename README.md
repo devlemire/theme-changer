@@ -8,23 +8,18 @@ In this project we will create an application that can change the theme of a par
 
 ### Summary
 
-In this step we will create the initial state for `App.js` and `TextContainer.js`.
+In this step we will create the initial state for `src/App.js`. We will keep track of the initial theme values and the if the theme is allowed to be edited on this state.
 
 ### Instructions
 
-* Open `App.js` ( `src/App.js` ) and `TextContainer.js` ( `src/components/TextContainer.js` )
-* In `App.js`, create a constructor method where it says `// constructor`
-  * Call `super()`
-  * Create a `state` object with the following properties:
+* Open `src/App.js`.
+* Create a `constructor` method where it says `// constructor`:
+  * This method should call `super()`.
+  * This should create an initial state object with the following properties:
     * fontColor: 'black'
     * fontSize: 12,
     * fontFamily: 'monospace'
-* In `TextContainer.js`, create a constructor method where it says `// constructor`
-  * Call `super()`
-  * Create a `state` object with the following properties:
-    * fontColor: 'black',
-    * fontSize: 12,
-    * fontFamily: 'monospace'
+    * allowEdit: 'true'
 
 ### Solution
 
@@ -38,24 +33,8 @@ constructor() {
   this.state = {
     fontColor: 'black',
     fontSize: 12,
-    fontFamily: 'monospace'
-  };
-}
-```
-
-</details>
-
-<details> 
-
-<summary> <code> TextContainer.js </code> </summary>
-
-```jsx
-constructor() {
-  super();
-  this.state = {
-    fontColor: 'black',
-    fontSize: 12,
-    fontFamily: 'monospace'
+    fontFamily: 'monospace',
+    allowEdit: 'true'
   };
 }
 ```
@@ -66,17 +45,19 @@ constructor() {
 
 ### Summary
 
-In this step we will create methods on `App.js` to update `fontColor`, `fontSize` and `fontFamily` on state. 
+In this step we will create class methods in `src/App.js` to update `fontColor`, `fontSize`, `fontFamily`, and `allowEdit` on state. 
 
 ### Instructions
 
-* Open `App.js` ( `src/App.js` )
-* Create an updateColor method that takes a parameter called `val` where it says `// updateColor`
-  * Use `setState` to update `fontColor` to `val`
-* Create an updateSize method that takes a parameter called `val` where it says `// updateSize`
-  * Use `setState` to update `fontSize` to `val`
-* Create an updateFamily method that takes a parameter called `val` where it says `// updateFamily`
-  * Use `setState` to update `fontFamily` to `val`
+* Open `src/App.js`.
+* Create an updateColor method that takes a parameter called `val` where it says `// updateColor`:
+  * Use `setState` to update `fontColor` to `val`.
+* Create an updateSize method that takes a parameter called `val` where it says `// updateSize`:
+  * Use `setState` to update `fontSize` to `val`.
+* Create an updateFamily method that takes a parameter called `val` where it says `// updateFamily`:
+  * Use `setState` to update `fontFamily` to `val`.
+* Create an updateStatus method that takes a parameter called `val` where it says `// updateStatus`:
+  * Use `setState` to update `allowEdit` to `val`.
 
 ### Solution
 
@@ -95,6 +76,10 @@ updateSize(val) {
 
 updateFamily(val) {
   this.setState({ fontFamily: val });
+}
+
+updateStatus(val) {
+  this.setState({ allowEdit: val })
 }
 ```
 

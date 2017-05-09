@@ -28,15 +28,54 @@ In this step we will create the initial state for `src/App.js`. On this state ob
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-constructor() {
-  super();
-  this.state = {
-    fontColor: 'black',
-    fontSize: 12,
-    fontFamily: 'monospace',
-    allowEdit: 'true'
-  };
+import React, { Component } from 'react';
+import './App.css';
+
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+  }
+
+  // updateColor
+
+  // updateSize
+
+  // updateFamily
+
+  // updateStatus
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          { /* Render ColorChanger */ }
+          { /* Render SizeChanger */ }
+          { /* Render FamilyChanger */ }
+        </div>
+        { /* Render TextContainer */ }
+      </div>
+    )
+  }
 }
+
+export default App;
 ```
 
 </details>

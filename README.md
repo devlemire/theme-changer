@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. In the process we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
+In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
 
 ## Step 1
 
@@ -258,10 +258,13 @@ In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChan
 * Open `src/App.js`.
 * Render the `ColorChanger` component where it says `{ /* Render ColorChange */ }`:
   * Add a prop called `update` that is equal to the `updateColor` method.
+  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
 * Render the `SizeChanger` component where it says `{ /* Render SizeChanger */ }`:
   * Add a prop called `update` that is equal to the `updateSize` method.
+  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
 * Render the `FamilyChanger` component where it says `{ /* Render FamilyChanger */ }`:
   * Add a prop called `update` that is equal to the `updateFamily` method.
+  * Add a prop called `allowEdit` that is eqaul to the value of `allowEdit` on state.
 
 ### Solution
 
@@ -319,9 +322,9 @@ class App extends Component {
           <option value="false"> Disable Edit </option>
         </select>
         <div>
-          <ColorChanger update={ this.updateColor } />
-          <SizeChanger update={ this.updateSize } />
-          <FamilyChanger update={ this.updateFamily } />
+          <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit } />
+          <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
+          <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
         </div>
         { /* Render TextContainer */ }
       </div>
@@ -338,7 +341,7 @@ export default App;
 
 ### Summary
 
-In this step we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element.
+In this step we will update our `select` elements in the `ColorChanger`, `FamilyChanger`, and `SizeChanger` components to use an `onChange` that calls the `update` prop with the value of the `select` element. We will also disable the `select` element if the value of `allowEdit` is `"false"`.
 
 ### Instructions
 
@@ -347,6 +350,8 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
   * The `onChange` should use an arrow function to capture the `event`. 
   * Inside the arrow function call the `update` prop with the value of the target from the `event`.
   * Parse Int the value of the target when in `SizeChanger`. 
+* On the opening `select` tag, in all three files, add a `disabled` prop:
+  * The `select` element should be `disabled` if `allowEdit` is equal to `"false"`.
 
 ### Solution
 
@@ -417,24 +422,83 @@ render() {
 
 ### Summary 
 
-In this step we will create a `componentWillReceiveProps` method that will update the `state` in `TextContainer.js`.
+In this step we will update the `select` element in `src/App.js` to use an `onChange` prop to update the value of `allowEdit` on state.
 
 ### Instructions
 
-* Open `TextContainer.js` ( `src/components/TextContainer.js` )
-* Add a `componentWillReceiveProps` method that takes a parameter called `props` where it says `// componentWillReceiveProps`
-  * Using `setState` update the `fontColor`, `fontFamily`, and `fontSize` properties on state with the new `props`
+* Open `src/App.js`.
+* Locate the `select` element:
+  * Add an `onChange` prop:
+    * The `onChange` should use an arrow function to capture the `event`.
+    * Inside the arrow function call the `updateStatus` method with the value of the target from the `event`.
 
 ### Solution
 
 <details>
 
-<summary> <code> TextContainer.js </code> </summary>
+<summary> <code> App.js </code> </summary>
 
 ```jsx
-componentWillReceiveProps(props) {
-  this.setState({ fontColor: props.fontColor, fontFamily: props.fontFamily, fontSize: props.fontSize });
+import React, { Component } from 'react';
+import './App.css';
+
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+  }
+
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
+  }
+
+  updateStatus(val) {
+    this.setState({ allowEdit: val })
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select onChange={ (e) => this.updateStatus(e.target.value) }>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          <ColorChanger update={ this.updateColor } />
+          <SizeChanger update={ this.updateSize } />
+          <FamilyChanger update={ this.updateFamily } />
+        </div>
+        { /* Render TextContainer */ }
+      </div>
+    )
+  }
 }
+
+export default App;
 ```
 
 </details>

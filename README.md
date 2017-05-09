@@ -25,7 +25,7 @@ In this step we will create the initial state for `src/App.js`. On this state ob
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -102,7 +102,7 @@ In this step we will create class methods in `src/App.js` to update `fontColor`,
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -180,7 +180,7 @@ In this step we will bind `this` to our methods in the `constructor` method in `
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -270,7 +270,7 @@ In this step we will `render` our `ColorChanger`, `FamilyChanger`, and `SizeChan
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -357,7 +357,7 @@ In this step we will update our `select` elements in the `ColorChanger`, `Family
 
 <details>
 
-<summary> <code> ColorChanger.js </code> </summary>
+<summary> <code> src/components/ColorChanger.js </code> </summary>
 
 ```jsx
 render() {
@@ -378,7 +378,7 @@ render() {
 
 <details>
 
-<summary> <code> FamilyChanger.js </code> </summary>
+<summary> <code> src/components/FamilyChanger.js </code> </summary>
 
 ```jsx
 render() {
@@ -399,7 +399,7 @@ render() {
 
 <details>
 
-<summary> <code> SizeChanger.js </code> </summary>
+<summary> <code> src/components/SizeChanger.js </code> </summary>
 
 ```jsx
 render() {
@@ -436,7 +436,7 @@ In this step we will update the `select` element in `src/App.js` to use an `onCh
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -521,7 +521,7 @@ In this step we will `render` the `TextContainer` component in `App.js` with a `
 
 <details>
 
-<summary> <code> App.js </code> </summary>
+<summary> <code> src/App.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -641,7 +641,7 @@ export default class ColorChanger extends Component {
 
 <details>
 
-<summary> <code> `src/components/FamilyChanger.js` </code> </summary>
+<summary> <code> src/components/FamilyChanger.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';
@@ -677,7 +677,7 @@ export default class FamilyChanger extends Component {
 
 <details>
 
-<summary> <code> `src/components/SizeChanger.js` </code> </summary>
+<summary> <code> src/components/SizeChanger.js </code> </summary>
 
 ```jsx
 import React, { Component } from 'react';

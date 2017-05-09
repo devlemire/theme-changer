@@ -503,7 +503,7 @@ export default App;
 
 </details>
 
-## Step 7 
+## Step 7
 
 ### Summary
 
@@ -511,11 +511,11 @@ In this step we will `render` the `TextContainer` component in `App.js` with a `
 
 ### Instructions
 
-* Open `App.js` ( `src/App.js` )
-* Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`
-  * Add a `fontColor` prop that equals `fontColor` on state
-  * Add a `fontSize` prop that equals `fontSize` on state
-  * Add a `fontFamily` prop that equals `fontFamily` on state
+* Open `src/App.js`.
+* Render the `TextContainer` component where it says `{ /* Render TextContainer */ }`:
+  * Add a `fontColor` prop that equals `fontColor` on state.
+  * Add a `fontSize` prop that equals `fontSize` on state.
+  * Add a `fontFamily` prop that equals `fontFamily` on state.
 
 ### Solution
 
@@ -524,7 +524,189 @@ In this step we will `render` the `TextContainer` component in `App.js` with a `
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-<TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+import React, { Component } from 'react';
+import './App.css';
+
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+  }
+
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
+  }
+
+  updateStatus(val) {
+    this.setState({ allowEdit: val })
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select onChange={ (e) => this.updateStatus(e.target.value) }>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          <ColorChanger update={ this.updateColor } />
+          <SizeChanger update={ this.updateSize } />
+          <FamilyChanger update={ this.updateFamily } />
+        </div>
+        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+</details>
+
+## Step 8
+
+### Summary
+
+At first glance it seems everything is working fine in our application, however when we change the value of `allowEdit` using the `select` element our child components are not updating. In this step we will fix this bug using a react life cycle method called `componentWillReceiveProps`.
+
+### Instructions
+
+* Open `ColorChanger.js`, `FamilyChanger.js`, and `SizeChanger.js` from `src/components/`.
+* Add a `componentWillReceiveProps` method underneath the `constructor` method in all three files:
+  * This method should take in a parameter called `props`.
+  * This method should use `setState` to update the value of `allowEdit` on state to the value of `allowEdit` on `props`.
+
+### Solution
+
+<details>
+
+<summary> <code> src/components/ColorChanger.js </code> </summary>
+
+```jsx
+import React, { Component } from 'react';
+
+export default class ColorChanger extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      allowEdit: this.props.allowEdit
+    };
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({ allowEdit: props.allowEdit });
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Font Color </p>
+        <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+          <option value="black"> Black </option>
+          <option value="blue"> Blue </option>
+          <option value="green"> Green </option>
+        </select>
+      </div>
+    )
+  }
+}
+```
+
+</details>
+
+<details>
+
+<summary> <code> `src/components/FamilyChanger.js` </code> </summary>
+
+```jsx
+import React, { Component } from 'react';
+
+export default class FamilyChanger extends Component {
+ constructor(props) {
+    super(props);
+    this.state={
+      allowEdit: this.props.allowEdit
+    };
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({ allowEdit: props.allowEdit });
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Font Family </p>
+        <select onChange={ (e) => this.props.update(e.target.value) } disabled={ this.state.allowEdit === "false" }>
+          <option value="monospace"> Monospace </option>
+          <option value="arial"> Arial </option>
+          <option value="courier"> Courier </option>
+        </select>
+      </div>
+    )
+  }
+}
+```
+
+</details>
+
+<details>
+
+<summary> <code> `src/components/SizeChanger.js` </code> </summary>
+
+```jsx
+import React, { Component } from 'react';
+
+export default class SizeChanger extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      allowEdit: this.props.allowEdit
+    };
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({ allowEdit: props.allowEdit });
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Font Size </p>
+        <select onChange={ (e) => this.props.update(parseInt(e.target.value, 10)) } disabled={ this.state.allowEdit === "false" }>
+          <option value="12"> 12 </option>
+          <option value="13"> 13 </option>
+          <option value="14"> 14 </option>
+        </select>
+      </div>
+    )
+  }
+}
 ```
 
 </details>

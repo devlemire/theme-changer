@@ -105,21 +105,62 @@ In this step we will create class methods in `src/App.js` to update `fontColor`,
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-updateColor(val) {
-  this.setState({ fontColor: val });
+import React, { Component } from 'react';
+import './App.css';
+
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+  }
+
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
+  }
+
+  updateStatus(val) {
+    this.setState({ allowEdit: val })
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          { /* Render ColorChanger */ }
+          { /* Render SizeChanger */ }
+          { /* Render FamilyChanger */ }
+        </div>
+        { /* Render TextContainer */ }
+      </div>
+    )
+  }
 }
 
-updateSize(val) {
-  this.setState({ fontSize: val });
-}
-
-updateFamily(val) {
-  this.setState({ fontFamily: val });
-}
-
-updateStatus(val) {
-  this.setState({ allowEdit: val })
-}
+export default App;
 ```
 
 </details>
@@ -128,12 +169,12 @@ updateStatus(val) {
 
 ### Summary
 
-In this step we will bind `this` to our methods in the `constructor` method in `App.js`.
+In this step we will bind `this` to our methods in the `constructor` method in `App.js`. We'll only need to bind `this` on the `updateColor`, `updateSize`, and `updateFamily` methods.
 
 ### Instructions
 
-* Open `App.js` ( `src/App.js` )
-* Bind `this` to the three methods we just created: `updateColor`, `updateSize`, and `updateFamily` in the `constructor` method
+* Open `src/App.js`.
+* Bind `this` to the `updateColor`, `updateSize`, and `updateFamily` methods at the bottom of the `constructor` method.
 
 ### Solution
 
@@ -142,18 +183,66 @@ In this step we will bind `this` to our methods in the `constructor` method in `
 <summary> <code> App.js </code> </summary>
 
 ```jsx
-constructor() {
-  super();
-  this.state = {
-    fontColor: 'black',
-    fontSize: 12,
-    fontFamily: 'monospace'
-  };
+import React, { Component } from 'react';
+import './App.css';
 
-  this.updateColor = this.updateColor.bind(this);
-  this.updateSize = this.updateSize.bind(this);
-  this.updateFamily = this.updateFamily.bind(this);
+// Components
+import ColorChanger from './components/ColorChanger';
+import SizeChanger from './components/SizeChanger';
+import FamilyChanger from './components/FamilyChanger';
+import TextContainer from './components/TextContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+      allowEdit: 'true'
+    };
+
+    this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
+  }
+
+  updateColor(val) {
+    this.setState({ fontColor: val });
+  }
+
+  updateSize(val) {
+    this.setState({ fontSize: val });
+  }
+
+  updateFamily(val) {
+    this.setState({ fontFamily: val });
+  }
+
+  updateStatus(val) {
+    this.setState({ allowEdit: val })
+  }
+
+  render() {
+    return (
+      <div>
+        <p> Editable </p>
+        <select>
+          <option value="true"> Allow Edit </option>
+          <option value="false"> Disable Edit </option>
+        </select>
+        <div>
+          { /* Render ColorChanger */ }
+          { /* Render SizeChanger */ }
+          { /* Render FamilyChanger */ }
+        </div>
+        { /* Render TextContainer */ }
+      </div>
+    )
+  }
 }
+
+export default App;
 ```
 
 </details>

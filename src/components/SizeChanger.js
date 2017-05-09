@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 export default class SizeChanger extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allowEdit: this.props.allowEdit
+    };
+  }
+
   render() {
     return (
       <div>

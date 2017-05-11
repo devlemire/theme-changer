@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import EditToggle from './components/EditToggle';
 import ColorChanger from './components/ColorChanger'
 import SizeChanger from './components/SizeChanger';
 import FamilyChanger from './components/FamilyChanger';
@@ -16,9 +17,10 @@ class App extends Component {
       allowEdit: 'true'
     };
 
-    this.updateColor = this.updateColor.bind(this);
-    this.updateSize = this.updateSize.bind(this);
-    this.updateFamily = this.updateFamily.bind(this);
+    this.updateEditStatus = this.updateEditStatus.bind( this );
+    this.updateColor = this.updateColor.bind( this );
+    this.updateSize = this.updateSize.bind( this );
+    this.updateFamily = this.updateFamily.bind( this );
   }
 
   updateColor(val) {
@@ -33,7 +35,7 @@ class App extends Component {
     this.setState({ fontFamily: val });
   }
 
-  updateStatus(val) {
+  updateEditStatus(val) {
     this.setState({ allowEdit: val });
   }
 
@@ -41,10 +43,7 @@ class App extends Component {
     return (
       <div>
         <div className="headerBar">
-          <select className="dropDownContainer ml0" onChange={ (e) => this.updateStatus(e.target.value) }>
-            <option value="true"> Allow Edit </option>
-            <option value="false"> Disable Edit </option>
-          </select>
+          <EditToggle update={ this.updateEditStatus } />
           <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit }/>
           <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
           <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />

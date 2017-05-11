@@ -40,17 +40,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p> Editable </p>
-        <select onChange={ (e) => this.updateStatus(e.target.value) }>
-          <option value="true"> Allow Edit </option>
-          <option value="false"> Disable Edit </option>
-        </select>
-        <div>
+        <div className="headerBar">
+          <select className="dropDownContainer ml0" onChange={ (e) => this.updateStatus(e.target.value) }>
+            <option value="true"> Allow Edit </option>
+            <option value="false"> Disable Edit </option>
+          </select>
           <ColorChanger update={ this.updateColor } allowEdit={ this.state.allowEdit }/>
           <SizeChanger update={ this.updateSize } allowEdit={ this.state.allowEdit } />
           <FamilyChanger update={ this.updateFamily } allowEdit={ this.state.allowEdit } />
         </div>
-        <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+        <div className="textArea">
+          <TextContainer fontColor={ this.state.fontColor } fontSize={ this.state.fontSize } fontFamily={ this.state.fontFamily } />
+        </div>
       </div>
     )
   }

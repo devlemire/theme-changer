@@ -4,6 +4,17 @@
 
 In this project we will create an application that can change the theme of a paragraph real-time using elements on the front-end. We will also create a switch that can enable and disable the ability to change the theme of the paragraph. In the process of creating this project, we will cover how to use `this`, `bind`, `state`, `props`, and `componentWillReceiveProps`.
 
+You can find a finished live example <a href="#">here</a>.
+
+<img src="" />
+
+## Setup
+
+* `fork` and `clone` this repository.
+* `cd` into the project directory.
+* Run `npm install` in your terminal.
+* Run `npm start` after `npm install` has finished.
+
 ## Step 1
 
 ### Summary
